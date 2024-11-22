@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Dropdown Pustu dan Laporan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    .container {
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      background: linear-gradient(to bottom, #ffffff, #e6f7ff);
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1, h2, h3 {
+      margin: 10px 0;
+      font-family: 'Arial Black', Arial, sans-serif;
+      color: #2c3e50;
+    }
+    h1 {
+      font-size: 28px;
+      color: #0066cc;
+    }
+    h2 {
+      font-size: 22px;
+      color: #004d99;
+    }
+    h3 {
+      font-size: 18px;
+      color: #666;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      background: #ffffff;
+      transition: 0.3s;
+    }
+    select:hover {
+      background: #e6f7ff;
+    }
+    label {
+      font-size: 16px;
+      color: #2c3e50;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+    .linktree-btn {
+      display: inline-block;
+      background-color: #ff6600;
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    .linktree-btn:hover {
+      background-color: #e65c00;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Judul Halaman -->
+    <h1>UPTD PUSKESMAS PETANG I</h1>
+    <h2>Laporan Program Anak dan Balita</h2>
+    <h3>Programer: Ida Ayu Putu Diah Jayadi</h3>
+
+    <!-- Dropdown Pustu -->
+    <div class="dropdown-container">
+      <label for="pustu">Pilih Pustu:</label>
+      <select id="pustu">
+        <option value="">-- Pilih Pustu --</option>
+        <option value="https://example.com/pustu-sulangai-1">Pustu Sulangai 1</option>
+        <option value="https://example.com/pustu-sulangai-2">Pustu Sulangai 2</option>
+        <option value="https://example.com/pustu-pangsan">Pustu Pangsan</option>
+        <option value="https://example.com/pustu-getasan">Pustu Getasan</option>
+        <option value="https://example.com/pustu-carangsari">Pustu Carangsari</option>
+      </select>
+    </div>
+
+    <!-- Dropdown Bulan -->
+    <div class="dropdown-container">
+      <label for="bulan">Pilih Bulan:</label>
+      <select id="bulan">
+        <option value="">-- Pilih Bulan --</option>
+        <option value="Januari">Januari</option>
+        <option value="Pebruari">Pebruari</option>
+        <option value="Maret">Maret</option>
+        <option value="April">April</option>
+        <option value="Mei">Mei</option>
+        <option value="Juni">Juni</option>
+        <option value="Juli">Juli</option>
+        <option value="Agustus">Agustus</option>
+        <option value="September">September</option>
+        <option value="Oktober">Oktober</option>
+        <option value="November">November</option>
+        <option value="Desember">Desember</option>
+      </select>
+    </div>
+
+    <!-- Dropdown Jenis Laporan -->
+    <div class="dropdown-container" id="jenis-laporan-container" style="display: none;">
+      <label for="jenis-laporan">Pilih Jenis Laporan:</label>
+      <select id="jenis-laporan">
+        <option value="">-- Pilih Jenis Laporan --</option>
+        <option value="MTBM">Laporan MTBM</option>
+        <option value="MTBS">Laporan MTBS</option>
+        <option value="Skrining">Laporan Skrining</option>
+        <option value="Balita">Data Riil Balita</option>
+        <option value="Bayi">Data Riil Bayi</option>
+        <option value="DataBalita">Data Balita</option>
+        <option value="Neonatus">Laporan Kunjungan Neonatus</option>
+        <option value="Resti">Laporan Resti</option>
+        <option value="BBLR">Register BBLR</option>
+      </select>
+    </div>
+
+    <!-- Tombol Kembali ke Linktree -->
+    <div class="footer">
+      <a href="https://linktr.ee/username_anda" class="linktree-btn" target="_blank">Kembali ke Menu Utama</a>
+    </div>
+  </div>
+
+  <script>
+    const bulanDropdown = document.getElementById('bulan');
+    const jenisLaporanDropdown = document.getElementById('jenis-laporan');
+    const jenisLaporanContainer = document.getElementById('jenis-laporan-container');
+
+    // Tampilkan dropdown jenis laporan setelah memilih bulan
+    bulanDropdown.addEventListener('change', function() {
+      if (this.value) {
+        jenisLaporanContainer.style.display = 'block';
+      } else {
+        jenisLaporanContainer.style.display = 'none';
+      }
+    });
+
+    // Buka link spreadsheet di tab baru berdasarkan bulan dan jenis laporan
+    jenisLaporanDropdown.addEventListener('change', function() {
+  const bulan = bulanDropdown.value; // Ambil nilai bulan
+  const laporan = this.value;       // Ambil nilai jenis laporan
+
+  if (bulan && laporan) {
+    // Format link spreadsheet (ganti dengan link sebenarnya)
+    const linkBase = "https://docs.google.com/spreadsheets/d";
+    const spreadsheetLinks = {
+      Januari: {
+        MTBM: `${linkBase}/januari-mtbm-id`,
+        MTBS: "https://docs.google.com/spreadsheets/d/1Vkd-isL_zAaGfhkxxXNMmNORLCVNYWXa/edit?usp=sharing&ouid=110993906804188379911&rtpof=true&sd=true",  // Link MTBS Pustu Sulangai 1 Januari
+        Skrining: `${linkBase}/januari-skrining-id`,
+        Balita: `${linkBase}/januari-balita-id`,
+        Bayi: `${linkBase}/januari-bayi-id`,
+        DataBalita: `${linkBase}/januari-data-balita-id`,
+        Neonatus: `${linkBase}/januari-neonatus-id`,
+        Resti: `${linkBase}/januari-resti-id`,
+        BBLR: `${linkBase}/januari-bblr-id`
+      },
+      // Tambahkan bulan lain di sini
+    };
+
+    if (spreadsheetLinks[bulan] && spreadsheetLinks[bulan][laporan]) {
+      const link = spreadsheetLinks[bulan][laporan];
+      window.open(link, '_blank'); // Buka link di tab baru
+    } else {
+      alert("Link tidak tersedia.");
+    }
+  }
+});
+
+  </script>
+</body>
+</html>
